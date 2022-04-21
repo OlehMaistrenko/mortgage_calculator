@@ -1,21 +1,9 @@
-import { useEffect, useState } from "react";
-import { getBanks } from "../api/rest/bank";
+// import { useEffect, useState } from "react";
+// import { getBanks } from "../api/rest/bank";
 import Bank from "../components/Bank";
 import "../styles/banks.css";
 
-function Banks() {
-  const [banks, setBanks] = useState([]);
-
-  useEffect(() => {
-    updateBanksList();
-  }, []);
-
-  const updateBanksList = () => {
-    getBanks().then((resp) => {
-      setBanks(resp.data);
-    });
-  };
-
+function Banks({ banks, updateBanksList }) {
   return (
     <div className='banks'>
       {banks.map((bank) => {

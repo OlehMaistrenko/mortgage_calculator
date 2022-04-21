@@ -20,3 +20,36 @@ input {
   outline: none;
   border: none;
 }
+
+nav {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  text-align: center;
+}
+nav a {
+  position: relative;
+  display: inline-block;
+  color: darkcyan;
+  font-size: 30px;
+  text-decoration: none;
+  width: min-content;
+}
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: darkcyan;
+  transition: 0.3s;
+}
+nav a.active::before {
+  width: 100%;
+}

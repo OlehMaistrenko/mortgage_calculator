@@ -2,6 +2,7 @@ import { useState } from "react";
 import DeleteIcon from "./DeleteIcon";
 import EditIcon from "./EditIcon";
 import { deleteBank, updateBank, createBank } from "../api/rest/bank";
+import useFormFields from "./useFormFields";
 function Bank({
   bankName = "",
   interestRate = "",
@@ -12,18 +13,7 @@ function Bank({
   updateBanksList,
   addNewBank,
 }) {
-  console.log("updated " + bankName);
-  const useFormFields = (initialValues) => {
-    const [fields, setFormFields] = useState(initialValues);
-    const changeFieldValue = (e) => {
-      const { name, value } = e.target;
-      setFormFields((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    };
-    return [fields, changeFieldValue, setFormFields];
-  };
+  //filling bank info to inputs
   const [fields, changeFieldValue, setFormFields] = useFormFields({
     bankName,
     interestRate,
@@ -31,7 +21,11 @@ function Bank({
     initialPayment,
     loanTerm,
   });
+
+  //flag for editing bank info
   const [editable, setEditable] = useState(false);
+
+  //cancel editing and setting default values
   const handleCancelEdit = () => {
     setEditable(false);
     setFormFields({
@@ -42,6 +36,8 @@ function Bank({
       loanTerm,
     });
   };
+
+  //updating bank info
   const handleEdit = (e) => {
     e.preventDefault();
     for (const value of Object.values(fields)) {
@@ -55,6 +51,8 @@ function Bank({
       setEditable(false);
     });
   };
+
+  //adding new bank to db
   const handleAdd = (e) => {
     e.preventDefault();
     for (const value of Object.values(fields)) {
@@ -63,11 +61,13 @@ function Bank({
         return;
       }
     }
-    createBank(fields).then((resp) => {
+    createBank(fields).then(() => {
       handleCancelEdit();
       updateBanksList();
     });
   };
+
+  //deleting bank from db
   const handleDelete = () => {
     if (window.confirm("Are you sure?")) {
       deleteBank(id).then((resp) => {
@@ -110,7 +110,7 @@ function Bank({
         />
       </div>
       <div className='bank__info-unit'>
-        <div className='bank__unit-name'>Interest Rate</div>
+        <div className='bank__unit-name'>Interest Rate(%)</div>
         <input
           type='number'
           className='bank__unit-value'
@@ -121,7 +121,7 @@ function Bank({
         />
       </div>
       <div className='bank__info-unit'>
-        <div className='bank__unit-name'>Maximum loan</div>
+        <div className='bank__unit-name'>Maximum loan(UAH)</div>
         <input
           type='number'
           className='bank__unit-value'
@@ -132,7 +132,7 @@ function Bank({
         />
       </div>
       <div className='bank__info-unit'>
-        <div className='bank__unit-name'>Minimum down payment</div>
+        <div className='bank__unit-name'>Minimum down payment(%)</div>
         <input
           type='number'
           className='bank__unit-value'
@@ -143,7 +143,7 @@ function Bank({
         />
       </div>
       <div className='bank__info-unit'>
-        <div className='bank__unit-name'>Loan term</div>
+        <div className='bank__unit-name'>Loan term(month)</div>
         <input
           type='number'
           className='bank__unit-value'

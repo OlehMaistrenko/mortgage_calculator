@@ -2,27 +2,11 @@
   "banks": [
     {
       "bankName": "Alfa Bank2 ",
-      "interestRate": 0.11,
+      "interestRate": "20",
       "maximumLoan": 2500000,
-      "initialPayment": 0.25,
-      "loanTerm": 12,
+      "initialPayment": "25",
+      "loanTerm": "10",
       "id": 0
-    },
-    {
-      "bankName": "mono",
-      "interestRate": "22",
-      "maximumLoan": "22",
-      "initialPayment": "22",
-      "loanTerm": "22",
-      "id": 1
-    },
-    {
-      "bankName": "Alfa Bank22",
-      "interestRate": "22",
-      "maximumLoan": "22",
-      "initialPayment": "22",
-      "loanTerm": "22",
-      "id": 2
     }
   ]
 }

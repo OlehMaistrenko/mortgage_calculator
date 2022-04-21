@@ -12,7 +12,7 @@
 .bank {
   position: relative;
   background-color: lightblue;
-  padding: 20px;
+  padding: 20px 10px;
   border-radius: 15px;
   display: grid;
   grid-template-columns: auto auto;

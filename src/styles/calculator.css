@@ -1,0 +1,82 @@
+.calculator {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 20px;
+  text-align: center;
+  background: #000;
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 20px;
+}
+.calculator__btn {
+  position: relative;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: darkcyan;
+}
+.calculator__input,
+.calculator__select {
+  background: rgb(212, 222, 225);
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+.calculator__input-title {
+  font-weight: 300;
+  font-size: 14px;
+}
+.calculator__select {
+  border: none;
+  outline: none;
+}
+.calculator__select optgroup {
+  outline: none;
+  border: none;
+}
+
+.calculator__result {
+  background: transparent;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  margin-top: -20px;
+  height: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1;
+  transition: 0.3s;
+}
+.calculator__result.show {
+  height: 37px;
+  margin-top: 0;
+}
+.calculator__bank-info {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 20px;
+}
+.calculator__bank-info > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.calculator__bank-info span {
+  font-size: 16px;
+  vertical-align: bottom;
+  font-weight: 500;
+}
