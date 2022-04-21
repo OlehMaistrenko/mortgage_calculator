@@ -1,0 +1,159 @@
+.banks {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  grid-gap: 30px;
+  text-align: center;
+}
+.bank {
+  position: relative;
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  font-size: 16px;
+  height: min-content;
+  transition: padding-bottom 0.3s;
+  overflow: hidden;
+}
+.bank-edit {
+  padding-bottom: 56px;
+}
+
+.bank input {
+  background: rgb(212, 222, 225);
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+.bank input:read-only {
+  background: transparent;
+}
+.bank__info-unit {
+  position: relative;
+}
+.bank__name {
+  grid-column: 1/-1;
+  font-weight: 500;
+  font-size: 20px;
+}
+.bank__info-unit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bank__name-input {
+  text-align: center;
+  font-size: 20px;
+}
+.bank__unit-name {
+  font-weight: 300;
+  font-size: 14px;
+}
+.bank__unit-name_name {
+  max-height: 0;
+  transition: max-height 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.bank-edit .bank__unit-name_name {
+  max-height: 17px;
+}
+.bank__btn {
+  position: relative;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+}
+.bank__save-btn {
+  background-color: darkcyan;
+}
+.bank__cancel-btn {
+  background-color: rgb(197, 33, 33);
+}
+.bank__edit-controlls {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: calc(100% - 40px);
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  grid-column: -1 / 1;
+}
+.bank-edit .bank__edit-controlls {
+  display: grid;
+}
+.controll-icon {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s 0.3s;
+}
+.controll-icon:hover {
+  opacity: 1;
+}
+.controll-icon_edit {
+  left: 10px;
+  top: 10px;
+}
+.controll-icon_delete {
+  top: 10px;
+  right: 10px;
+}
+.bank:hover .controll-icon {
+  visibility: visible;
+  opacity: 0.7;
+}
+.bank.bank-edit .controll-icon {
+  visibility: hidden;
+  opacity: 0;
+}
+.bank__add-btn {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+.bank-edit .bank__add-btn {
+  opacity: 0;
+  visibility: hidden;
+}
+.bank__add-btn::before,
+.bank__add-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 20px;
+  background-color: darkcyan;
+}
+.bank__add-btn::after {
+  width: 20px;
+  height: 100px;
+}
